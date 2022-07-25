@@ -8,6 +8,7 @@
         const { type, value, videoId } = obj;
     
         if (type === "NEW") {
+            console.log('new ', videoId)
             currentVideo = videoId;
             newVideoLoaded();
         } else if (type === "PLAY") {
@@ -19,15 +20,12 @@
             });
 
             response(currentVideoBookmarks)
-        } else if (type == "FEED") {
-            const thumbnails = document.getElementsByClassName('ytd-thumbnail no-transition');
-            console.log(thumbnails);
-            console.log(thumbnails.length);
-            console.log(thumbnails);
-            for (i = 0; i < thumbnails.length; ++i) {
-                const thumbnail = thumbnails[i];
-                console.log(thumbnail);
-                thumbnail.innerHTML = '';
+        } else if (type == "REDDIT") {
+            console.log('reddit.com')
+            const comments = document.getElementsByClassName('Comment');
+            for (i = 0; i < comments.length; ++i) {
+                const comment = comments[i];
+                comment.innerHTML = '';
             }
         }
     });

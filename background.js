@@ -14,6 +14,12 @@ chrome.tabs.onUpdated.addListener((tabId, tab) => {
           type: "FEED",
           videoID: ''
       })
+    } else if (tab.url && tab.url.includes("reddit.com")) {
+      console.log('reddit.com')
+      chrome.tabs.sendMessage(tabId, {
+          type: "REDDIT",
+          videoID: ''
+      })
     }
   });
   
